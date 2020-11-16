@@ -15,9 +15,9 @@ their battleships (if one occupies that position) or a “miss”
 
 
 Implementation Details
- - ASP.NET Core 3.0 
+ - ASP.NET Core 3.1 
  - Serilog
  - Unit tests Completed ( xUnit and Moq )
  - Integration Tests ( Not Completed )
- - Azure Pipeline
+ - Github Actions Build and Deployment Pipeline (Hosted in Azure Web Apps, URL: https://battleshipstatetrackerapi-m.azurewebsites.net/)
  - Postman collection provided.
