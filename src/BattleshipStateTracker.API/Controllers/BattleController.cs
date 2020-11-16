@@ -58,7 +58,7 @@ namespace BattleshipStateTracker.API.Controllers
         {
             var status = _battleService.GetBattleStatus(battleId);
 
-            return Ok((status));
+            return Ok(((BattleStatus)status).ToString());
         }
 
 
