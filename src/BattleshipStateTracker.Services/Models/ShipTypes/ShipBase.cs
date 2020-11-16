@@ -5,11 +5,20 @@ using System.Linq;
 namespace BattleshipStateTracker.Services.Models.ShipTypes
 {
     public abstract class ShipBase
-    { 
+    {
+        /// <summary>
+        /// Gets or Sets Name
+        /// </summary>
         public string Name { get; set; }
 
+        /// <summary>
+        /// Gets or Sets Cells
+        /// </summary>
         public List<GridCell> Cells { get; }
 
+        /// <summary>
+        /// Gets or Sets Length
+        /// </summary>
         public int Length { get; set; }
 
         public ShipBase()
@@ -17,6 +26,9 @@ namespace BattleshipStateTracker.Services.Models.ShipTypes
             Cells = new List<GridCell>();
         }
 
+        /// <summary>
+        /// Gets IsSunk
+        /// </summary>
         public bool IsSunk
         {
             get

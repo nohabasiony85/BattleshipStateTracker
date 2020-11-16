@@ -22,6 +22,13 @@ namespace BattleshipStateTracker.Services
             _battles = new List<Battle>();
         }
 
+        /// <summary>
+        /// The InitiateBattle
+        /// </summary>
+        /// <param name="gridDimension">The gridDimension<see cref="int"/>.</param>
+        /// <param name="numberOfShips">The battle<see cref="int"/>.</param>
+        /// <param name="shipLength">The shipLength<see cref="int"/>.</param>
+        /// <returns></returns>
         public Battle InitiateBattle(int gridDimension, int numberOfShips, int shipLength)
         {
             if (shipLength > gridDimension)
@@ -35,6 +42,11 @@ namespace BattleshipStateTracker.Services
             return battle;
         }
 
+        /// <summary>
+        /// The GetBattleStatus
+        /// </summary>
+        /// <param name="battleId">The battleId<see cref="string"/>.</param>
+        /// <returns>The <see cref="BattleStatus"/>.</returns>
         public BattleStatus GetBattleStatus(string battleId)
         {
             var battle = GetBattle(battleId);
@@ -42,19 +54,32 @@ namespace BattleshipStateTracker.Services
             return battle.Status;
         }
 
+        /// <summary>
+        /// The AddShip
+        /// </summary>
+        /// <param name="battleId">The battleId<see cref="string"/>.</param>
+        /// <param name="coordinate">The coordinate<see cref="Coordinate"/>.</param>
+        /// <param name="direction">The direction<see cref="ShipDirection"/>.</param>
+        /// <param name="shipType">The shipType<see cref="ShipType"/>.</param>
+        /// <returns>The <see cref="ShipBase"/>.</returns>
         public ShipBase AddShip(string battleId, Coordinate coordinate, ShipDirection direction, ShipType shipType)
         {
             var battle = GetBattle(battleId);
 
             var shipInfo = GetShipByType(shipType);
 
-            ValidateShipCreation(battle, coordinate, direction, shipInfo);
+            ValidateShipCreation(battle, coordinate, direction);
 
             var ship = battle.AddShip(coordinate, direction, shipInfo);
 
             return ship;
         }
 
+        /// <summary>
+        /// The GetShipByType
+        /// </summary>
+        /// <param name="shipType">The shipType<see cref="ShipType"/>.</param>
+        /// <returns>The <see cref="ShipBase"/>.</returns>
         private ShipBase GetShipByType(ShipType shipType)
         {
             return shipType switch
@@ -68,6 +93,12 @@ namespace BattleshipStateTracker.Services
             };
         }
 
+        /// <summary>
+        /// The Attack
+        /// </summary>
+        /// <param name="battleId">The battleId<see cref="string"/>.</param>
+        /// <param name="coordinate">The coordinate<see cref="Coordinate"/>.</param>
+        /// <returns>The <see cref="BattleResult"/>.</returns>
         public BattleResult Attack(string battleId, Coordinate coordinate)
         {
             var battle = GetBattle(battleId);
@@ -104,6 +135,11 @@ namespace BattleshipStateTracker.Services
             };
         }
 
+        /// <summary>
+        /// The ValidateAttack
+        /// </summary>
+        /// <param name="coordinate">The coordinate<see cref="Coordinate"/>.</param>
+        /// <param name="battle">The battle<see cref="Battle"/>.</param>
         private void ValidateAttack(Coordinate coordinate, Battle battle)
         {
             if (battle.Status == BattleStatus.GameOver)
@@ -118,7 +154,13 @@ namespace BattleshipStateTracker.Services
                     $"The attacked cell is invalid column and row coordinates have to be from 0 to {battle.Grid.Dimension}");
         }
 
-        private void ValidateShipCreation(Battle battle, Coordinate coordinate, ShipDirection direction, ShipBase ship)
+        /// <summary>
+        /// The ValidateShipCreation
+        /// </summary>
+        /// <param name="battle">The battle<see cref="Battle"/>.</param>
+        /// <param name="coordinate">The coordinate<see cref="Coordinate"/>.</param>
+        /// <param name="direction">The direction<see cref="ShipDirection"/>.</param>
+        private void ValidateShipCreation(Battle battle, Coordinate coordinate, ShipDirection direction)
         {
             if (battle.Status == BattleStatus.GameOver)
                 throw new InvalidShipCreationException("This battle is over. Ship can't be created.");
@@ -127,9 +169,14 @@ namespace BattleshipStateTracker.Services
                 throw new InvalidShipCreationException("Ship can't be created.");
 
             if (battle.Grid.Ships.Count >= battle.Grid.NumberOfShips)
-                throw new InvalidShipCreationException("Can't fit more ships");
+                    throw new InvalidShipCreationException("Can't fit more ships");
         }
 
+        /// <summary>
+        /// The GetBattle
+        /// </summary>
+        /// <param name="battleId">The battleId<see cref="string"/>.</param>
+        /// <returns></returns>
         private Battle GetBattle(string battleId)
         {
             if (!Guid.TryParse(battleId, out var id))

@@ -5,8 +5,14 @@ namespace BattleshipStateTracker.Services.Models
 {
     public class GridCell
     {
-        public Coordinate Coordinate { get; } 
+        /// <summary>
+        /// Gets Coordinate
+        /// </summary>
+        public Coordinate Coordinate { get; }
 
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public Occupation Status { get; set; }
         

@@ -23,6 +23,11 @@ namespace BattleshipStateTracker.API.Controllers
             _battleService = gameService;
         }
 
+        /// <summary>
+        /// The InitiateBattle
+        /// </summary>
+        /// <param name="request">The request<see cref="InitiateBattleRequest"/>.</param>
+        /// <returns>The <see cref="IActionResult"/>.</returns>
         [HttpPost]
         [ProducesResponseType(typeof(Battle), 201)]
         [ProducesResponseType(typeof(FailedBattleInitiationException), 400)]
@@ -50,6 +55,11 @@ namespace BattleshipStateTracker.API.Controllers
             }
         }
 
+        /// <summary>
+        /// The GetBattleStatus
+        /// </summary>
+        /// <param name="battleId">The battleId<see cref="string"/>.</param>
+        /// <returns>The <see cref="IActionResult"/>.</returns>
         [HttpGet("{battleId}")]
         [ProducesResponseType(typeof(BattleStatus), 200)]
         [ProducesResponseType(typeof(InvalidBattleIdException), 400)]
@@ -61,14 +71,18 @@ namespace BattleshipStateTracker.API.Controllers
             return Ok(((BattleStatus)status).ToString());
         }
 
-
+        /// <summary>
+        /// The AddShip
+        /// </summary>
+        /// <param name="battleId">The battleId<see cref="string"/>.</param>
+        /// <param name="addShipRequest">The addShipRequest<see cref="AddShipRequest"/>.</param>
+        /// <returns>The <see cref="IActionResult"/>.</returns>       
         [Route("{battleId}/ship")]
         [HttpPost]
         [ProducesResponseType(typeof(ShipBase), 201)]
         [ProducesResponseType(typeof(InvalidShipCreationException), 409)]
         [ProducesResponseType(typeof(FailedShipCreationException), 400)]
-        public IActionResult AddShip(string battleId,
-            [FromBody] AddShipRequest addShipRequest)
+        public IActionResult AddShip(string battleId, [FromBody] AddShipRequest addShipRequest)
         {
             try
             {
@@ -94,13 +108,18 @@ namespace BattleshipStateTracker.API.Controllers
             }
         }
 
+        /// <summary>
+        /// The Attack
+        /// </summary>
+        /// <param name="battleId">The battleId<see cref="string"/>.</param>
+        /// <param name="attackCoordinate">The addShipRequest<see cref="Coordinate"/>.</param>
+        /// <returns>The <see cref="IActionResult"/>.</returns>       
         [Route("{battleId}/attacks")]
         [HttpPost]
         [ProducesResponseType(typeof(BattleResult), 200)]
         [ProducesResponseType(typeof(AttackFailedException), 400)]
         [ProducesResponseType(typeof(AttackFailedException), 409)]
-        public IActionResult Attack(string battleId,
-            [FromBody] Coordinate attackCoordinate)
+        public IActionResult Attack(string battleId, [FromBody] Coordinate attackCoordinate)
         {
             try
             {

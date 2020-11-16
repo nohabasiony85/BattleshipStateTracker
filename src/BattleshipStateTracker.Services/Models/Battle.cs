@@ -6,7 +6,14 @@ namespace BattleshipStateTracker.Services.Models
 {
     public class Battle
     {
+        /// <summary>
+        /// Gets Id
+        /// </summary>
         public Guid Id { get; }
+
+        /// <summary>
+        /// Gets Grid
+        /// </summary>
         public Grid Grid { get;  } 
         
         

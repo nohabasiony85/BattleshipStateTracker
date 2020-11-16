@@ -1,5 +1,8 @@
 ﻿namespace BattleshipStateTracker.Services.Enums
 {
+    /// <summary>
+    /// Defines the Occupation types
+    /// </summary>
     public enum Occupation
     {
         Empty = 0,

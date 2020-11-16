@@ -6,7 +6,10 @@ namespace BattleshipStateTracker.API.Controllers
     [Route("")]
     public class HealthCheckController : Controller
     {
-        // GET
+        /// <summary>
+        /// The Index
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Index()
         {
