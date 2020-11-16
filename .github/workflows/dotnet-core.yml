@@ -9,7 +9,7 @@ env:
   AZURE_WEBAPP_NAME: BattleShipStateTrackerAPI-m
 
 jobs:
-  build:
+  build-and-deploy:
 
     runs-on: ubuntu-latest
 
