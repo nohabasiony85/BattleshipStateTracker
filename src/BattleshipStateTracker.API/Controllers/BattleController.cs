@@ -85,20 +85,20 @@ namespace BattleshipStateTracker.API.Controllers
             catch (InvalidShipCreationException ex)
             {
                 _logger.LogError(ex.Message);
-                return Conflict(ex);
+                return Conflict(ex.Message);
             }
             catch (FailedShipCreationException ex)
             {
                 _logger.LogError(ex.Message);
-                return BadRequest(ex);
+                return BadRequest(ex.Message);
             }
         }
 
         [Route("{battleId}/attacks")]
         [HttpPost]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(409)]
+        [ProducesResponseType(typeof(BattleResult), 200)]
+        [ProducesResponseType(typeof(AttackFailedException), 400)]
+        [ProducesResponseType(typeof(AttackFailedException), 409)]
         public IActionResult Attack(string battleId,
             [FromBody] Coordinate attackCoordinate)
         {
@@ -111,12 +111,12 @@ namespace BattleshipStateTracker.API.Controllers
             catch (AttackFailedException ex)
             {
                 _logger.LogError(ex.Message);
-                return Conflict(ex);
+                return Conflict(ex.Message);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return BadRequest(ex);
+                return BadRequest(ex.Message);
             }
         }
     }
