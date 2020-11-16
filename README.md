@@ -1,4 +1,5 @@
 ## Battleship State Tracker
+![BattleShipStateTracker ASP.NET Core Web API](https://github.com/nohabasiony85/BattleshipStateTracker/workflows/BattleShipStateTracker%20ASP.NET%20Core%20Web%20API/badge.svg)
 ### Background
 Emulate the classic game "Battleship".
 - Two players
