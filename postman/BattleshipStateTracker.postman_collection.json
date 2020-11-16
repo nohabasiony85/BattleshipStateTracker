@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "405d04d3-bd90-4029-8794-ce7dbcabbcd8",
+		"_postman_id": "7597eeb3-bd90-4447-997d-8f710885b22f",
 		"name": "BattleshipStateTracker",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,10 +11,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ac254311-247a-4387-b1c7-c1b309eee224",
+						"id": "69f1a277-381d-45db-a32c-6318f81b580c",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"battleId\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"id\", jsonData.id);",
 							""
 						],
 						"type": "text/javascript"
@@ -36,16 +36,12 @@
 					"raw": "{\n\t\"ShipLength\": 3,\n\t\"Dimension\" : 10,\n\t\"NoOfShips\" : 5\n}"
 				},
 				"url": {
-					"raw": "https://localhost:5001/battle/1eb73359-df78-4fe9-978e-89f561bf3c9a/sh9-",
-					"protocol": "https",
+					"raw": "{{baseUrl}}/battle",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "5001",
 					"path": [
-						"battle",
-						"1eb73359-df78-4fe9-978e-89f561bf3c9a",
-						"sh9-"
+						"battle"
 					]
 				}
 			},
@@ -57,7 +53,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ac254311-247a-4387-b1c7-c1b309eee224",
+						"id": "9c44b9de-4c18-4182-a5c3-19d52ff57e84",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
 							"postman.setEnvironmentVariable(\"battleId\", jsonData.id);",
@@ -111,18 +107,16 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"column\": 1,\n\t\"row\": 1,\n\t\"direction\": \"horizontal\"\n}"
+					"raw": "{\n\t\"column\": 4,\n\t\"row\": 5,\n\t\"shipDirection\": \"vertical\",\n    \"ShipType\": \"destroyerShip\"\n}"
 				},
 				"url": {
-					"raw": "https://localhost:5001/battle/{{battleId}}/ship",
-					"protocol": "https",
+					"raw": "{{baseUrl}}/battle/f3cd16ee-1b2d-4faa-be3d-f08114c1eca9/ship",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "5001",
 					"path": [
 						"battle",
-						"{{battleId}}",
+						"f3cd16ee-1b2d-4faa-be3d-f08114c1eca9",
 						"ship"
 					]
 				}
@@ -161,5 +155,6 @@
 			},
 			"response": []
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
