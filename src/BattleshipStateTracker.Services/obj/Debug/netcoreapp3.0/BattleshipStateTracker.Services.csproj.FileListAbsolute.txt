@@ -1,9 +1,0 @@
-C:\Noha\Noha\OFX\BattleshipStateTracker-master\BattleshipStateTracker-master\src\BattleshipStateTracker.Services\bin\Debug\netcoreapp3.0\BattleshipStateTracker.Services.deps.json
-C:\Noha\Noha\OFX\BattleshipStateTracker-master\BattleshipStateTracker-master\src\BattleshipStateTracker.Services\bin\Debug\netcoreapp3.0\BattleshipStateTracker.Services.dll
-C:\Noha\Noha\OFX\BattleshipStateTracker-master\BattleshipStateTracker-master\src\BattleshipStateTracker.Services\bin\Debug\netcoreapp3.0\BattleshipStateTracker.Services.pdb
-C:\Noha\Noha\OFX\BattleshipStateTracker-master\BattleshipStateTracker-master\src\BattleshipStateTracker.Services\obj\Debug\netcoreapp3.0\BattleshipStateTracker.Services.csprojAssemblyReference.cache
-C:\Noha\Noha\OFX\BattleshipStateTracker-master\BattleshipStateTracker-master\src\BattleshipStateTracker.Services\obj\Debug\netcoreapp3.0\BattleshipStateTracker.Services.AssemblyInfoInputs.cache
-C:\Noha\Noha\OFX\BattleshipStateTracker-master\BattleshipStateTracker-master\src\BattleshipStateTracker.Services\obj\Debug\netcoreapp3.0\BattleshipStateTracker.Services.AssemblyInfo.cs
-C:\Noha\Noha\OFX\BattleshipStateTracker-master\BattleshipStateTracker-master\src\BattleshipStateTracker.Services\obj\Debug\netcoreapp3.0\BattleshipStateTracker.Services.csproj.CoreCompileInputs.cache
-C:\Noha\Noha\OFX\BattleshipStateTracker-master\BattleshipStateTracker-master\src\BattleshipStateTracker.Services\obj\Debug\netcoreapp3.0\BattleshipStateTracker.Services.dll
-C:\Noha\Noha\OFX\BattleshipStateTracker-master\BattleshipStateTracker-master\src\BattleshipStateTracker.Services\obj\Debug\netcoreapp3.0\BattleshipStateTracker.Services.pdb
